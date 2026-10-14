@@ -1,0 +1,16 @@
+{
+  "name": "dhisana",
+  "interface": { "displayName": "Dhisana" },
+  "plugins": [
+    {
+      "name": "dhisana-workspace",
+      "source": {
+        "source": "url",
+        "url": "https://github.com/dhisana-ai/dhisana-workspace.git",
+        "ref": "main"
+      },
+      "policy": { "installation": "AVAILABLE", "authentication": "ON_INSTALL" },
+      "category": "Productivity"
+    }
+  ]
+}

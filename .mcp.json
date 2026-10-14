@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "dhisana": {
+      "type": "http",
+      "url": "https://api-agent.dhisana.ai/mcp-server/mcp"
+    }
+  }
+}

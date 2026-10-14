@@ -1,0 +1,19 @@
+{
+  "name": "dhisana",
+  "description": "Dhisana AI plugins for Claude Code and Cowork.",
+  "owner": {
+    "name": "Dhisana AI",
+    "url": "https://www.dhisana.ai"
+  },
+  "plugins": [
+    {
+      "name": "dhisana-workspace",
+      "source": {
+        "source": "github",
+        "repo": "dhisana-ai/dhisana-workspace"
+      },
+      "description": "RFP and market-signal review, monitoring tuning, Account Portfolio Fit, Quick Match and account watching in Dhisana.",
+      "category": "productivity"
+    }
+  ]
+}

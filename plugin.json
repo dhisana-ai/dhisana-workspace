@@ -1,0 +1,41 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "dhisana-workspace",
+  "version": "0.3.0",
+  "description": "RFP and market-signal review, monitoring tuning, Account Portfolio Fit, Quick Match briefs, account watching, campaigns and sales outcome reporting in Dhisana.",
+  "author": {
+    "name": "Dhisana AI",
+    "url": "https://www.dhisana.ai"
+  },
+  "homepage": "https://www.dhisana.ai",
+  "repository": "https://github.com/dhisana-ai/dhisana-workspace",
+  "keywords": [
+    "accounts",
+    "evidence",
+    "sales",
+    "approvals"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Dhisana Workspace",
+        "shortDescription": "Sales workflows and insights",
+        "longDescription": "Review cited RFP and market findings and record decisions; tune monitoring policies; run Account Portfolio Fit and Quick Match research and read the briefs; watch accounts for material changes; inspect campaigns, tasks, CRM connections and outcomes. Dhisana's workspace, reviewer, reauthentication and audit rules are enforced server-side.",
+        "developerName": "Dhisana AI",
+        "category": "Productivity",
+        "capabilities": [
+          "Read",
+          "Write"
+        ],
+        "websiteURL": "https://www.dhisana.ai",
+        "brandColor": "#146957",
+        "defaultPrompt": [
+          "Open my Dhisana workspace",
+          "Show today's RFP findings for review",
+          "Where could we help this account?"
+        ]
+      }
+    }
+  },
+  "license": "LicenseRef-Dhisana-Plugin"
+}

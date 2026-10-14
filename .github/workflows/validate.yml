@@ -1,0 +1,50 @@
+name: validate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check manifests, MCP configs and skills
+        run: |
+          python3 - <<'PY'
+          import json, pathlib, re, sys
+          root = pathlib.Path(".")
+          errors = []
+          claude = json.loads((root / ".claude-plugin/plugin.json").read_text())
+          openai = json.loads((root / "plugin.json").read_text())
+          if claude["name"] != openai["name"] or claude["version"] != openai["version"]:
+              errors.append("Claude and OpenAI manifests disagree on name or version")
+          for name in (".mcp.json", "mcp.json"):
+              server = json.loads((root / name).read_text())["mcpServers"]["dhisana"]
+              if not server["url"].startswith("https://"):
+                  errors.append(f"{name}: MCP URL must be https")
+              if "headers" in server:
+                  errors.append(f"{name}: no credentials in MCP config")
+          json.loads((root / ".claude-plugin/marketplace.json").read_text())
+          json.loads((root / ".agents/plugins/marketplace.json").read_text())
+          for skill in sorted((root / "skills").glob("*/SKILL.md")):
+              m = re.match(r"---\nname: ([a-z0-9-]+)\ndescription: (.+?)\n---\n", skill.read_text(), re.S)
+              if not m or m.group(1) != skill.parent.name:
+                  errors.append(f"{skill}: front matter name must match folder")
+          words = len(re.sub(r"```.*?```", "", (root / "README.md").read_text(), flags=re.S).split())
+          if words < 40:
+              errors.append("README must have at least 40 words outside code blocks")
+          for path in root.rglob("*"):
+              if ".git" in path.parts:
+                  continue
+              if path.name in {".DS_Store", "Thumbs.db", "desktop.ini"}:
+                  errors.append(f"system file: {path}")
+              if path.is_file() and path.stat().st_size > 256 * 1024:
+                  errors.append(f"file over 256 KiB: {path}")
+          print("\n".join(errors) or "ok")
+          sys.exit(1 if errors else 0)
+          PY

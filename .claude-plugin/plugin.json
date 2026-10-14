@@ -1,0 +1,20 @@
+{
+  "name": "dhisana-workspace",
+  "displayName": "Dhisana Workspace",
+  "version": "0.3.0",
+  "description": "Review RFP and market-signal findings, tune monitoring, run Account Portfolio Fit and Quick Match briefs, and watch accounts in Dhisana, with cited evidence and Dhisana's own review and approval rules enforced server-side.",
+  "author": {
+    "name": "Dhisana AI",
+    "url": "https://www.dhisana.ai"
+  },
+  "homepage": "https://www.dhisana.ai",
+  "repository": "https://github.com/dhisana-ai/dhisana-workspace",
+  "license": "LicenseRef-Dhisana-Plugin",
+  "keywords": [
+    "sales",
+    "rfp",
+    "signals",
+    "account-planning",
+    "evidence"
+  ]
+}
