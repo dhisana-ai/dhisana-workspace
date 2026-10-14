@@ -56,8 +56,10 @@ codex plugin marketplace add dhisana-ai/dhisana-workspace
 then install **Dhisana Workspace** from the plugin directory and sign in when
 prompted.
 
-**ChatGPT.** Install from the plugin directory once listed, or register the
-MCP URL in developer mode.
+**ChatGPT.** Install from the plugin directory once listed. Until then, open
+[chatgpt.com/plugins](https://chatgpt.com/plugins), select **+ → Add custom
+MCP server**, enter the MCP URL above with OAuth authentication, accept the
+warning, select **Create as a plugin** and sign in.
 
 ## Data
 
